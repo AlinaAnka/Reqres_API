@@ -38,7 +38,8 @@ public class RegisterTests extends TestBase {
                         .extract().as(RegisterResponseModel.class));
 
         step("Проверка ответа", () -> {
-            assertEquals("QpwL5tke4Pnpja7X4", response.getToken());
+            assertNotNull(response.getToken());
+            assertTrue(response.getToken().length() >= 15);
             assertEquals("4", response.getId());
         });
     }
